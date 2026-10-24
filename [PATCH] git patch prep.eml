@@ -1,0 +1,203 @@
+Received: from GV2PR06MB723302.eurprd06.prod.outlook.com
+ (2603:10a6:150:38c::17) by PAXPR06MB8127.eurprd06.prod.outlook.com with
+ HTTPS; Sat, 24 Oct 2026 21:58:32 +0000
+Received: from OS6P279CA0139.NORP279.PROD.OUTLOOK.COM (2603:10a6:e10:3a::9) by
+ GV2PR06MB723302.eurprd06.prod.outlook.com (2603:10a6:150:38c::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.546.21; Sat, 24 Oct
+ 2026 21:58:30 +0000
+Received: from CPH1EPF00000524.eurprd05.prod.outlook.com
+ (2603:10a6:e10:3a:cafe::6c) by OS6P279CA0139.outlook.office365.com
+ (2603:10a6:e10:3a::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.546.21 via Frontend Transport; Sat,
+ 24 Oct 2026 21:58:30 +0000
+Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP is
+ 2a00:1450:4864:20::32c) smtp.mailfrom=gmail.com; dkim=pass (signature was
+ verified) header.d=gmail.com;dmarc=pass action=none
+ header.from=gmail.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 2a00:1450:4864:20::32c as permitted sender) receiver=protection.outlook.com;
+ client-ip=2a00:1450:4864:20::32c; helo=mail-wm1-x32c.google.com; pr=C
+Received: from mail-wm1-x32c.google.com (2a00:1450:4864:20::32c) by
+ CPH1EPF00000524.mail.protection.outlook.com (2603:10a6:388::1e7) with
+ Microsoft SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id
+ 15.21.569.4 via Frontend Transport; Sat, 24 Oct 2026 21:58:30 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4a207b02a2cso12042105e9.1
+        for <qf26282@bristol.ac.uk>; Sat, 24 Oct 2026 14:58:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1792879109; x=1793483909; darn=bristol.ac.uk;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=aMh3OGUihlwRCVW8fhkHVX4Yu+CPKAlffakFH9QNb4M=;
+        b=K2IaJE+k6o8GNG0DyfPPH/q2ftJfgDTKhemuWiNEsyFhd+dy+j07ISjmvrogTcznRI
+         p9xXlhJ+K8LuKRe2qcZ2VJ3VwsEUPeYP9DS+i6JGAaib9l/WXz12J6KEIles3zWtCLJt
+         ODl+NuumB4mcyb43MfAidxMFOyRa9zB3QdvJe9HXrLUCZY7nztpnW3Dvm7+tP32NpuPx
+         OjeUCe2ZSPjZIaDOutOH+XIdZoDnqK1Ai+OiPaseT/2j/PxDY6G5f7ECTij8iT00kcCd
+         4YOS7RijIpZthl+7BL4lErMfSfNUJ61ZIpAfkgZ3lYY7r9zWROZZ8qBi55Kt0RRCKs9u
+         8YuA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1792879109; x=1793483909;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=aMh3OGUihlwRCVW8fhkHVX4Yu+CPKAlffakFH9QNb4M=;
+        b=sJF7DZNkpHnhgy7tPvvqyj7VZjs4vm1Yw3sePQ/P5zwCIyiIKxsrvdPa2B5xwYYnlj
+         bJFVLePzodON0nnJqoIRKk/7/3fwx3NPzy3xDOsm7nfvIj36IYmeNf2cJ4iExLmq5D77
+         07nNUjqX/vJlk1YBSJQcC+QBb4Jz0nvh/y5ijYTjoIy9wxtHLFuCtACxpZtjyPC/lMV0
+         08rreVvDO+6FmkTdznC6M6Gz1sKjZ1mD/Q12aX9YYNyTIHZD2iEy6tMcsv/v0Uh456Ec
+         Z7/FWW303XQBobMVK6ATql+etvBQNa9oTEDomeU2b6UBEi+DU8g3kWZmLfnlryFVcU0G
+         9Sug==
+X-Gm-Message-State: AFq9FYIJufC5w7cYvkyqBqmWuiW1PollF1vKYKa4m9eYs4fJavY+4fds
+	4A96TBhbpY5dRca51L3sg8vBCTy4nC/ibhLsM5Tv/J/jWlZUw5ffg4JoJLhxniwT
+X-Gm-Gg: AYBFou1zwk6gD+q2u/KG2Xp/2ak9RKYiNo9v8uPstaxlsr7eHsttt452zdSePCunGKp
+	dyZr3u2h04kUJchWPQBzRQYUY1I2ZxbWWGHxnBc3osNjn9wTgLwrtS8xVo5HilryDrDb03gDluH
+	P5ZkRUIpuCp8HoB96HtSL8PHnMNytr8Bk7Py0tgqiLoSFQshC16LivbTHKIuk96kx5SUlfdZR4E
+	naIt5/6TmHsaMUuKchxQgg4tJZg7j37EWuvYoXT32E3NJP6ijn8Rm81doTy0DzhmEwoJqHoQcN1
+	GDIdO7x2y+IgTYBPGToqycDMjDdhzo95K6GCB6c8Ta3Z/XfQcm57CK0zvVj/pO9dVum8dSw81a6
+	Wl07sSaL0Tuxxt4H7hHxcO03wNZtAZiIoEzjmynWh6HRM6+uZDka/ZdiPMg5QQ6UUyImvWEaxA2
+	bEIMqeDnnRDrbxCb3Fq+WHVz7k8AIZ7GwIqQ9aMvUUM1Naz15+YphlRURrixUAumE8gD599sCc+
+	jTBEeOFZUzKuvVxTeSj5nbEDEdjidCIIfyMjfikeCiMurHEzwYkHbCKzq262d5+czPE9d9NieYK
+	FEa4CooTlIz/PWDEhUQrZAUl2NYHrDz9QgC9xRcVgy6D3wRrKTSbG9bYS1fiKsS1s2PiwVN4uXe
+	m0dteqYSPg7fGV/46GUmj
+X-Received: by 2002:a05:600c:4e0e:b0:4a2:397:73f6 with SMTP id 5b1f17b1804b1-4a35ac9d227mr46858705e9.8.1792879109199;
+        Sat, 24 Oct 2026 14:58:29 -0700 (PDT)
+Return-Path: chan20010725@gmail.com
+Received: from 192.168.1.190 ([2a01:4b00:8a38:7700:3caf:cbab:aa79:3dc8])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4a35a046fefsm105238695e9.5.2026.10.24.14.58.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 24 Oct 2026 14:58:28 -0700 (PDT)
+From: classikCherryWood <chan20010725@gmail.com>
+To: jeff-uob <qf26282@bristol.ac.uk>
+Cc: classikCherryWood <shih-hao.chan@bayes.city.ac.uk>
+Subject: [PATCH] git patch prep
+Date: Sat, 24 Oct 2026 22:58:23 +0100
+Message-ID: <20261024215823.81712-1-chan20010725@gmail.com>
+X-Mailer: git-send-email 2.46.0
+Content-Transfer-Encoding: 8bit
+X-MS-Exchange-Organization-ExpirationStartTime: 24 Oct 2026 21:58:30.1203
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: c3d53847-76fb-4c9f-661f-08df3219f08c
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: b2e47f30-cd7d-4a4e-a5da-b18cf1a4151b:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CPH1EPF00000524:EE_|GV2PR06MB723302:EE_|PAXPR06MB8127:EE_
+X-MS-Exchange-Organization-AuthSource: CPH1EPF00000524.eurprd05.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: c3d53847-76fb-4c9f-661f-08df3219f08c
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-UoB-Sourced-From-Internet: True
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|704161411799003|42112799006|7093399015|260918224100599003|260918215300599003|19002099009|4128699003|55112099003|18002099003|16102099003|11063799006|56012099006|5063699009|10067099003|261021121427099003|261022105027099003|261021123027099003|41542003;
+X-Forefront-Antispam-Report: CIP:2a00:1450:4864:20::32c;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail-wm1-x32c.google.com;PTR:mail-wm1-x32c.google.com;CAT:NONE;SFS:(13230040)(704161411799003)(42112799006)(7093399015)(260918224100599003)(260918215300599003)(19002099009)(4128699003)(55112099003)(18002099003)(16102099003)(11063799006)(56012099006)(5063699009)(10067099003)(261021121427099003)(261022105027099003)(261021123027099003)(41542003);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Oct 2026 21:58:30.0894
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c3d53847-76fb-4c9f-661f-08df3219f08c
+X-MS-Exchange-CrossTenant-Id: b2e47f30-cd7d-4a4e-a5da-b18cf1a4151b
+X-MS-Exchange-CrossTenant-AuthSource: CPH1EPF00000524.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR06MB723302
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.0628530
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0546.016
+Content-Type: text/plain
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(4710232)(4713193)(4999285)(920097)(930201)(20251009284)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?iso-8859-1?Q?VRXNP5zu+p5k9PEo5V+bC0GMURt7M9dIaPEu1aWii5rac+4WbNnqxvq/12?=
+ =?iso-8859-1?Q?CVVH4a8uo+r+CUzLC06UHOpW/mlu0d/bPJ8THaUNwyPkrE8YACWEYAqy1s?=
+ =?iso-8859-1?Q?K+J1FfI/znse7Ky64qyVSlCZgtQVnS+9QxUPXZL3gC264AYkZs4mh180mw?=
+ =?iso-8859-1?Q?C0gjRJHI8yS4rLGTmIODNeP9azAixD8VuFDTb5u9dc20hV8ATueRTiDYgv?=
+ =?iso-8859-1?Q?Rk37Ag/682J1S4Js7YWPYUYp6IZ17hOWuj00suCJfuGw397LRRMkJZNdJI?=
+ =?iso-8859-1?Q?FQ6TYQ/bZQuFkUVa662/eOswt/udKqqJoIRGVScw5ipe0WjOE/n/VAVwLU?=
+ =?iso-8859-1?Q?3giCvbSTo93tVUMqJXtuYnqGYwVSnjSeAMoap5gfWnyJSnCLzrDod6Es9G?=
+ =?iso-8859-1?Q?9H73ZvgNueFwMOV64aAAMpJUusqfV1FIDxzlZJyxPYa8buCp+PAlV+sn6Z?=
+ =?iso-8859-1?Q?kSlU2o/BI+9OrRxnsbwbwJl4Ux8DlMypzRmi8BPLkYT/1Eq3K3NU8oqzex?=
+ =?iso-8859-1?Q?Vt/N4lDeNBcS5XgDp9ht+M79tNgvWlRo8dPx8UQzAXQq4y+EIZls9ZydBj?=
+ =?iso-8859-1?Q?ifQddcd8AmqzRSiBMINVJNB7UogPuw1VIu3t2MmxRUVL9Kq7Gy5l2kYCXu?=
+ =?iso-8859-1?Q?nozBUTl65/HAUXZRbfb05UW10M4faCCy5i2NzxnOUYgfFbJaYjz48Gd8v8?=
+ =?iso-8859-1?Q?d901CM+LLObu8r3+DBZn72JuRFrazuFgUdB3/1mmjS0975o8UGy3szky21?=
+ =?iso-8859-1?Q?/7/7BxG8MR4brdqNJVNDotRcai7dvpLfxvfIYL9A7cNo9PKd3yCFH9Ceb7?=
+ =?iso-8859-1?Q?OxPHh3IuhQasK9kBmNb5IS2A5pMbrYr/w/3xxdtEie55cnRVVT2SQ31MyP?=
+ =?iso-8859-1?Q?XyDwWO+CDSu1A9iLxaGR+/fXxa4H//03QUAHnOzdGgJ/v/Eb+chwafzrYd?=
+ =?iso-8859-1?Q?2O7gELWY9xKHLpHyGN0YTPm8nzeAylsordEVsvs5OofYl9Tixgfeg/E3gQ?=
+ =?iso-8859-1?Q?Hk5Wun6O+1u3fLGwdTtbxz4lYJJFWsumgk+jnjEa9GNXyqDTF4qcL7AtMQ?=
+ =?iso-8859-1?Q?llCnGEyYZkCdrTh6kaphnMFCR2iJcctqMoK2ha4oESTJvArVi2sqg0F3Tn?=
+ =?iso-8859-1?Q?c5ATAMwoABUrgR21XwnlE2NPwu/02tYuJi2xXMrITpdN1y56tm5oFLJurK?=
+ =?iso-8859-1?Q?LuQgPRb286Fov6/J5NCHwIfnz4X2PDdERei0lJ5iDRrVLm6zu/SG4imOQX?=
+ =?iso-8859-1?Q?RajeVr00NEbvRe+F4/snUF+aFuL7XUhME8S7setj6khn93Ar7oXj+pT5Ke?=
+ =?iso-8859-1?Q?gXp6PFp+jXApAVLmeh88l1GZbYRW2KX9/6nUJPMenKviVvQEknRewYPGvp?=
+ =?iso-8859-1?Q?8AssoRTvT1DW8MF8eNj/tlMPCT+XAlfe/dps1dQqS+m3UGy3aaGmpADGxr?=
+ =?iso-8859-1?Q?JH+C8y8Onq/LKTJ/C9Yq84DzzafQqsNyhJHFOlYFYc2zw/jduk7t1EzIjE?=
+ =?iso-8859-1?Q?A15SifpywaoNFA99ALu9AyvA+EUbSoe764LkRmbjXQznCXOs+S7EUnsUO8?=
+ =?iso-8859-1?Q?EwVqsJXmLEIiQdhgIZYl2LGI6PZ8PvhOg7V0JdocafWkHf+vQdGOoPce9l?=
+ =?iso-8859-1?Q?Ee8s0EE/AXtO32eg/BFeL1glN/36+4yspIyW/wCF+lLA2UX1YnEWoByHN2?=
+ =?iso-8859-1?Q?UaLaC+npoaNw1R3tObkGoOzAjG6IjCiR/qsAnRU5mYeIX8avS6T18Lsr6S?=
+ =?iso-8859-1?Q?BcS+wfxG+rsEX8uiNQqECsKbyK3e6B5YYRqQ2p81nTTZQ2Qv6NBo0QQVCp?=
+ =?iso-8859-1?Q?QQkgePCWK4aiYKqH7EPjV/DlT2phLtm2NVM2eGgNHAcyd0e0q5/ZEASj1H?=
+ =?iso-8859-1?Q?OiTENkn+nSXvGzgXSN03xC4bXCMDIhLSxGzey26FFC5bWPd079RVXIcPtG?=
+ =?iso-8859-1?Q?mkhR1fBiIvsozVX6oRaW1h0Kul4AvzYoPD8fC2cMu2FmjURmyqskkxfleh?=
+ =?iso-8859-1?Q?Mt4y+BVxUMp7b4SQC141W7EXdInEz7fwFPgz9uCDhvT4uXuzNt+R2RDS8U?=
+ =?iso-8859-1?Q?zITcHwrDuYIUS/sjoMn+CT0Xs8Nxz9VxfXkHwfPfbL5uFhqiGtNzncFA3n?=
+ =?iso-8859-1?Q?TC4Zr7oBZsLsSKGVhp3zXjuD1UhRJTipVfQw5vARB1G0hVALf267e+hLd7?=
+ =?iso-8859-1?Q?w976uej+jMj1QqXbFZE2o037WdaJPOxOWmt7Kcz8H+Z71cs+G+MJ7DYTlm?=
+ =?iso-8859-1?Q?Z3VeY7TwDRdgNG9UNneq7FXItFE2dvRjx54fSpgAs3iC5gokrSqrrRc0Aw?=
+ =?iso-8859-1?Q?nqD7rKd4Gw50l1HF/ZgriqwMElcBag7oPVxDMP82K224wPxaXc92EjSgyB?=
+ =?iso-8859-1?Q?4CoEafJKVn+T0R7W4AuErOxCeYv+OV2s7OZPXWoGSOarWgSA1a6Eu8bvhT?=
+ =?iso-8859-1?Q?CeekDC+dV37sfmkLrqvzFI/2xDMZpZbztnaTKop2/QMxRIs1O+28ypE3Sx?=
+ =?iso-8859-1?Q?/BloRCcfjfqyzKL9sh6r/eMdq32abEfgXtkUzrsicWMx0sdBCBFU5Ygizw?=
+ =?iso-8859-1?Q?ajyrklJZgAHu6TCRkbtBFJ6y58oJps5UBDrXmCYgyOLtHjhp69tz+H1D9E?=
+ =?iso-8859-1?Q?ZxpEYlpJleS87kfUhZwUg3d3UAyM6GOXzGyMQn291SaQ8aiYX9lv7PGQEK?=
+ =?iso-8859-1?Q?vJmsbSsPrz//ihvdVmWHBbHzcaztPX2DqZjE4SgNMimr9TtbdFWPYo6KJG?=
+ =?iso-8859-1?Q?uzQ0JmdqM3kqGkW/Nx6g3auV/irf6TtRC/+g1smHqYAUjiA4WsdYIEjDPL?=
+ =?iso-8859-1?Q?ryj1JV1irlHxJj/R9qft3QwdderiKyq4Gd2h9O6jJ2Y+Zpz6WC90kGS8Re?=
+ =?iso-8859-1?Q?CAlIM=3D?=
+MIME-Version: 1.0
+
+From: classikCherryWood <shih-hao.chan@bayes.city.ac.uk>
+
+---
+ a.md       | 1 -
+ b.md       | 1 -
+ changes.md | 1 -
+ patch.md   | 1 +
+ 4 files changed, 1 insertion(+), 3 deletions(-)
+ delete mode 100644 a.md
+ delete mode 100644 b.md
+ delete mode 100644 changes.md
+ create mode 100644 patch.md
+
+diff --git a/a.md b/a.md
+deleted file mode 100644
+index a56c110..0000000
+--- a/a.md
++++ /dev/null
+@@ -1 +0,0 @@
+-on branch dev, the a file has been changed(but feat branch cannot see this yet)
+diff --git a/b.md b/b.md
+deleted file mode 100644
+index 0bb7099..0000000
+--- a/b.md
++++ /dev/null
+@@ -1 +0,0 @@
+-on the feat branch, the b file has been modified
+diff --git a/changes.md b/changes.md
+deleted file mode 100644
+index b32d65f..0000000
+--- a/changes.md
++++ /dev/null
+@@ -1 +0,0 @@
+-jeff again made some changes
+diff --git a/patch.md b/patch.md
+new file mode 100644
+index 0000000..fc2792c
+--- /dev/null
++++ b/patch.md
+@@ -0,0 +1 @@
++This is some changes to commit for the git patch
+-- 
+2.46.0
+
